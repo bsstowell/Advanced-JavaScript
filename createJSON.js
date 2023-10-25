@@ -47,12 +47,12 @@ let student1JSON = JSON.stringify(student1);
 let student2JSON = JSON.stringify(student2);
 let student3JSON = JSON.stringify(student3);
 
-localStorage.setItem("Student 1",student1JSON);
+localStorage.setItem("Student1",student1JSON);
 //console.log(localStorage);
 
-localStorage.setItem("Student 2",student2JSON);
+localStorage.setItem("Student2",student2JSON);
 //console.log(localStorage);
 
-localStorage.setItem("Student 3",student3JSON);
+localStorage.setItem("Student3",student3JSON);
 //console.log(localStorage);
 
