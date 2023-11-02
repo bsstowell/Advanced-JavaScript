@@ -20,48 +20,39 @@
 
 <style>
 	.studentCard	{
-		width:200px;
+		width:50%;
 		box-sizing:border-box;
 		background-color:lightblue;
 		padding-left:5px;
 		padding-top:3px;
 		border:thin solid blue;
 		box-shadow: 2px 2px 2px grey;		
+		margin: 10px;
 	}
 	
 	.studentCard h3	{
-		margin:0px;	
+		margin:10px;	
 	}
 </style>
 
 <script src="createJSONArray.js"></script>
 
 <script>
+
+
 	function getStudents() {
 		let studentsJS = localStorage.getItem("students");
 		let studentsParse = JSON.parse(studentsJS);
-		console.log(studentsParse);
-		
-		let temp = document.getElementsByTagName("template")[0];
-		let clone = temp.content.cloneNode(true);
-		
-		let i, item;
-		for (i=0; i<studentsParse.length; i++) {
-			for (item in studentsParse[i]) {
-				clone.querySelector("#id").innerText = studentsParse.student_id;
-				clone.querySelector("#gpa").innerText = studentsParse.student_gpa;
-				document.body.appendChild(clone);
 
-				let list = document.querySelector("#courses");
-				for (i=0; i<studentsParse.student_courses; i++) {
-					let li = document.createElement('li');
-					li.innerText = studentsParse.student_courses[i];
-					list.appendChild(li);
-				}
-			}
+		for (i = 0; i < studentsParse.length; i++) {
+			let temp = document.getElementsByTagName("template")[0];
+			let clone = temp.content.cloneNode(true);
+			clone.querySelector("#id").innerText = studentsParse[i].student_id;
+			clone.querySelector("#gpa").innerText = studentsParse[i].student_gpa;
+			clone.querySelector("#courses").innerText = studentsParse[i].student_courses;
+			document.body.appendChild(clone);		
 		}
-	}
-	
+	}	
 
 </script>
 
@@ -75,18 +66,16 @@
 
 	<button onclick="getStudents()">student array of objects</button>
 
-<template id="studentTemplate">
-			<div class="studentCard">
-				<h3>Student ID: <span id="id"></span></h3>
-				<p>Student GPA: <span id="gpa"></span></p>
-				<p>Student Courses:
-					<ul>
-						<li id="courses"></li><!-- display the courses as list items -->
-					</ul>
-				</p>  
-			</div>    
-		</template>
-
+			<template>
+				<div class="studentCard">
+					<h3>Student ID: <span id="id"></span></h3>
+					<p>Student GPA: <span id="gpa"></span></p>
+					<p>Student Courses:
+						<ul id="courses">
+						</ul>
+					</p>  
+				</div>    
+			</template> 
 
 </body>
 </html>
