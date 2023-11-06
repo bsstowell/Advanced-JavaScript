@@ -44,13 +44,32 @@
 		let studentsJS = localStorage.getItem("students");
 		let studentsParse = JSON.parse(studentsJS);
 
-		for (i = 0; i < studentsParse.length; i++) {
+		for (i=0; i<studentsParse.length; i++) {
 			let temp = document.getElementsByTagName("template")[0];
 			let clone = temp.content.cloneNode(true);
 			clone.querySelector("#id").innerText = studentsParse[i].student_id;
 			clone.querySelector("#gpa").innerText = studentsParse[i].student_gpa;
-			clone.querySelector("#courses").innerText = studentsParse[i].student_courses;
-			document.body.appendChild(clone);		
+			//clone.querySelector("#courses").innerText = studentsParse[i].student_courses;
+			document.body.appendChild(clone);	
+			
+			for (x=0; x<studentsParse.length; x++) {
+				let courseList = document.createElement("li");
+				courseList.innerHTML = studentsParse[i].student_courses[x];
+				document.getElementById("courses").appendChild(courseList);
+			}
+
+			/*
+			document.querySelector("#id").innerHTML = studentsParse[i].student_id;
+			document.querySelector("#gpa").innerHTML = studentsParse[i].student_gpa;
+			document.querySelector("#courses").innerHTML = studentsParse[i].student_courses;
+
+			studentsParse.forEach(studentsParse => {
+				for(let value in studentsParse) {
+					let courseList = document.createElement("li");
+					courseList.innerText = (students[value]);
+					document.getElementById("courses").appendChild(courseList);
+				} 
+			});*/
 		}
 	}	
 
@@ -75,7 +94,6 @@
 						</ul>
 					</p>  
 				</div>    
-			</template> 
-
+			</template>
 </body>
 </html>
