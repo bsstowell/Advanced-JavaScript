@@ -1,23 +1,50 @@
-import logo from './logo.svg';
 import './App.css';
+import movies from "./movies";
+import { Fragment } from 'react';
+import { MoviePreview } from './MoviePreview';
+import {useState} from 'react';
 
 function App() {
+  const [currentMovie, setCurrentMovie] = useState(null)
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div class="moviePreview">
+      <p class="title">My Movie App</p>
+
+      <div className="movieContainer">
+      {
+          movies.map((_movie, index) => {
+
+            return (
+              <MoviePreview 
+                movie={_movie} 
+                key={_movie.title} 
+                onClick={() => setCurrentMovie(_movie)}
+              />
+            )
+          })
+      }
+      </div>
+
+        <div class="movieSelection">
+          <p>Current Movie:</p>
+
+          {
+            currentMovie ?
+              <>
+                <p>{currentMovie.title}</p>
+                <p>{currentMovie.director}</p>
+                <p>{currentMovie.rating}</p>
+                <img src={currentMovie.posterUrl} width={'200px'} class="rotate" alt={""} />
+                <p>Hover over image for effect</p>
+                <p><button onClick={() => setCurrentMovie(null)}>Clear Movie</button></p>
+              </>
+              :
+              <p>No selection</p>
+          }
+          
+        </div>
+
     </div>
   );
 }
