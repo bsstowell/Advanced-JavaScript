@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //switch - case structure special form of multiple if statements
+
+        //three key features of a loop?
+        //1. loop control variable - control the beginning/ending of a loop
+        //2. End condition - know when to end loop as a comparison to the loop control variable
+        //      counter control - know how many times we are going to process the loop  for loop
+        //      sentinel control - do this until some condition applies?    while loops
+        //3. make sure to update the loop control variable  for loop-incrementors, while loop ??
+
+        for(let x=1; x <= 5; x++ ){
+            //body of the loop
+            console.log(x);
+        }
+
+        let x = 1;  //establish loop control variable value
+        while( x<=5 ){
+            console.log(x);
+            //failed to update the loop control variable
+            x+=2;       //increment by two     x = x + 2
+        }
+
+        //arrays group collection list set table tuple 
+        // have an index - row number - the unique identifier within the container
+        //multiple values with the same name "and same data type"
+
+        let cars = ["Chevy","Ford","Honda"];        
+        console.log( cars.length );     //should be 3 
+
+        //change the style of the h3 header - change color to blue
+        //how to get access to the h3 object on the document object
+
+        function pageLoad(){
+            console.log( document.getElementById("header3") );
+            let header3Object = document.getElementById("header3");
+            header3Object.style.color = "blue";
+
+            //let paraObject = document.querySelector("p");      //this uses the CSS selectors to access
+            //console.log(paraObject);
+            //paraObject.style.color = "limegreen";
+
+            document.querySelector("#topLevel").style.color = "limegreen";
+        }
+    </script>
+
+    <script>
+        //JavaScript objects - provided by language JavaScript, Class, object literals
+
+        //javascript using the object literal 
+        let car = {
+            color:"white",
+            type:"sedan",
+            doors:4,
+        }
+
+        let car1 = {
+            color:"red",
+            type:"sport",
+            doors:2
+        }
+
+        console.log(car);
+
+        let newCars = [car,car1];
+
+        console.log(newCars);
+
+        //JSON - is a data definition format, String based, web friendly, AJAX
+
+        //json.stringify()   json.parse()
+
+        let carJSON = JSON.stringify(car);
+        console.log(carJSON);
+
+        //let car = ["white","sedan",4]
+
+    </script>
+</head>
+<body onload="pageLoad()">
+    <h1>WDV321 Intro JavaScript</h1>
+    <h2>JavaScript Review</h2>
+    <h3 id="header3">H3 Element</h3>
+    <p id="topLevel">Top Level</p>
+    <p>Second Level</p>
+
+</body>
+</html>

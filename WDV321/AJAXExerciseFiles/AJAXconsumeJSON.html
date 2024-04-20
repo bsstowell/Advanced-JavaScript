@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDV321 Advanced Javascript - AJAX Consume JSON Objects</title>
+
+    <script src="ajaxCalls.js"></script>
+
+    <style>
+        body {
+            text-align: center;
+            background-color: darkolivegreen;
+            color: white;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #buttons1 {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: auto;
+            font-size: 19px;
+            text-align: center; 
+            background-color: rgb(189, 113, 0);
+            color: white;
+            align-items: center;
+            padding: 20px;
+            width: 45%;
+            align-content: space-around;
+            border-radius: 25px;
+        }
+
+        #buttons2 {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: auto;
+            font-size: 19px;
+            text-align: center; 
+            background-color: rgb(105, 0, 0);
+            color: white;
+            align-items: center;
+            align-content: space-around;
+            padding: 20px;
+            width: 45%;
+            border-radius: 25px;
+        }
+
+        button {
+            background-color: black;
+            color: white;
+            border: solid gray 1px;
+            border-radius: 25px;
+            padding: 10px;
+            margin: 15px;
+        }
+
+        .studentDiv {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 15px;
+            font-size: 15px;
+            text-align: left; 
+            color: black;
+            background-color: rgb(187, 217, 238);
+            padding: 10px;
+            width: 200px;
+        }
+    </style>
+
+</head>
+<body>
+
+        <h1>This page will use AJAX Request Objects and Fetch API to pull files and display their contents upon clicking each of the buttons below.</h1>
+
+            <div id="buttons1">
+                <p>Click these buttons to retrieve JSON Student Files Using AJAX</p>
+                <div>
+                    <div id="div1"></div>
+                    <button type="button" onclick="retrieveFile1()">Student 1 Request</button>
+
+                    <div id="div2"></div>
+                    <button type="button" onclick="retrieveFile2()">Student 2 Request</button>
+
+                    <div id="div3"></div>
+                    <button type="button" onclick="retrieveFile3()">Student 3 Request</button>
+                </div>
+            </div><br><br>
+
+            <div id="buttons2">
+                <p>Click these buttons to retrieve JSON Student Files Using Fetch API</p>
+                <div>
+                    <div id="div4"></div>
+                    <button type="button" onclick="fetchFile1()">Student 1 Fetch</button>
+
+                    <div id="div5"></div>
+                    <button type="button" onclick="fetchFile2()">Student 2 Fetch</button>
+
+                    <div id="div6"></div>
+                    <button type="button" onclick="fetchFile3()">Student 3 Fetch</button>
+                </div>
+            </div>
+
+            <template id="studentTemplate">
+                <div class="studentDiv">
+                    <p>Student ID: <span id="id"></span></p>
+                    <p>First Name: <span id="first"></span></p>
+                    <p>Last Name: <span id="last"></span></p>
+                    <p>Major: <span id="major"></span></p>
+                    <p>Credits: <span id="credits"></span></p>
+                    <p>GPA: <span id="gpa"></span></p>
+                    <p>Registration Date: <span id="date"></span></p>
+                </div>
+            </template>
+
+</body>
+</html>

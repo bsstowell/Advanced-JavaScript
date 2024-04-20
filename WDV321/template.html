@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .productDiv {
+            width:400px;
+            background-color: limegreen;
+            margin-left:auto;
+            margin-right:auto;
+        }
+    </style>
+    <script>
+
+        function addKeyboard(){
+            /*
+                create the product container, have a class of "productDiv"
+                    createElement()
+                put the "Computer Keyboard" in the first p
+                put "$24.59" in the Price in the second p
+                put the container on the page below the other container(s)
+            */
+            let productDiv = document.createElement("div")
+            productDiv.setAttribute("class","productDiv");
+            console.log( productDiv );
+            let para1 = document.createElement("p");
+            para1.innerHTML = "Computer Keyboard";
+            console.log( para1);
+            productDiv.appendChild(para1);
+            console.log(productDiv);
+
+            let para2 = document.createElement("p");
+            para2.innerHTML = "Price: $19.59";
+            console.log( para2);
+            productDiv.appendChild(para2);
+            console.log(productDiv);
+
+            let productList = document.querySelector(".productOptions");
+            productList.appendChild(productDiv);
+        }
+
+        function addWirelessMouse(){
+            /*
+                -create the product container, have a class of "productDiv"
+                    createElement()
+                put the "Wireless Mouse" in the first p
+                put "$24.59" in the Price in the second p
+                -put the container on the page below the other container(s)
+            */
+            let temp = document.querySelector("#productTemplate");
+            //console.log(temp);
+            let newProductDiv = temp.content.cloneNode(true);
+            //modify the content of the newProductDiv
+            console.log(newProductDiv);
+            newProductDiv.querySelector(".productDiv p").innerHTML = "Wireless Mouse";
+            //use nth of type to get to the second para graph
+            console.log(newProductDiv);
+            let productList = document.querySelector(".productOptions");
+
+            productList.appendChild(newProductDiv);
+        }
+
+
+    </script>
+</head>
+<body>
+    <h1>WDV321 Intro JavaScript</h1>
+    <h2>Unit-3 Dynamic Structure - Template technique</h2>
+    <section class="productOptions">
+        <div class="productDiv">
+            <p>Computer Mouse</p>
+            <p>Price: $12.59</p>
+        </div>
+        <!-- example content
+        <div class="productDiv">
+            <p>Computer Keyboard</p>
+            <p>Price: $19.59</p>
+        </div> 
+        -->       
+    </section>
+    <p>
+        <button onclick="addKeyboard()">Add Keyboard to List</button>
+        <button onclick="addWirelessMouse()">Add Wireless Mouse</button>
+    </p>
+    <template id="productTemplate">
+        <div class="productDiv">
+            <p>Product Name</p>
+            <p>Product Price</p>
+        </div>
+    </template>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function displayName(){
+            document.write("Jeff");
+        }
+
+        function displayCity(inCity){
+            // browser doing let inCity = ? undefined
+            console.log(inCity);
+        }
+
+        //local variable scope?     Within a function and only that function while it exists
+        //local block scope?        loops, if statements  {}
+        //global varaible scope?    I can use it ANYWHERE on the page
+
+        //TWO ways to call a function!  Must be called to run the function
+        //1. Event handler
+        //2. use the function name in a script
+
+        //Three types of event handlers?
+        //1. HTML event attributes  
+        //2.
+        //3.
+
+        if (5 > 3){
+            //true branch - REQUIRED!!!S
+            console.log("5 is larger");
+        }
+
+        if(8 < 7){
+            //true branch
+        }
+        else{
+            //false branch 
+        }
+
+        for(let i=1; i<5; i++){
+            console.log(i);
+        }
+        console.log(i);
+
+        for(var i=1; i<5; i++){
+            console.log(i);
+        }
+        console.log("after loop finished " + i);
+
+        let names = [];         //creates an array called names with 
+        console.log(names);
+        names[5] = "Ankeny";
+        names.push("West Des Moines")
+        console.log(names);
+
+        /*
+            0
+            1
+            2
+            3
+            4
+            5
+            6
+            7
+            8
+
+
+
+
+
+        */
+
+        console.log(names[40]);  //getting the value from index position 4
+
+    </script>
+</head>
+<body>
+    <script>
+        document.write("<h3>Hello World!</h3>");      //runtime processed as the page is loaded
+    </script>
+
+    <h1>WDV321 Advanced JavaScript</h1>
+    <h2>Unit-1 JavaScript Review</h2>
+
+    <script>
+        displayName();      //this ONLY works during runtime
+
+        displayCity("Ankeny");  //pass "Ankeny" as a parameter to the function
+    </script>
+
+    <p>This is a JavaScript review.</p>
+    <button onclick="displayName()">Display Name</button>
+    <button onclick="displayCity('Norwalk')">Display City</button>
+
+    <script>
+        document.write("<h3>Hello World!</h3>");      //runtime processed as the page is loaded
+    </script>
+</body>
+</html>

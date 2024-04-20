@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #p2, #p3 {
+            display:none;
+        }
+
+    </style>
+
+    <script>
+
+        function pageSetup(){
+
+            document.getElementById("button1").onclick = function(){
+                changeParaDisplay('button1');
+            }
+
+            document.getElementById("button2").onclick = function(){
+                changeParaDisplay('button2');
+            }
+
+            document.getElementById("button3").onclick = function(){
+                changeParaDisplay('button3');
+            }
+
+
+        }//end pageSetup()
+
+        function changeParaDisplay(inButton) {
+            //this function will display the selected content and hide the remainder
+
+            let p1Status = "block";
+            let p2Status = "none";
+            let p3Status = "none";
+
+            if(inButton == 'button1'){
+                //show p1   hide p2 and p3
+                p1Status = 'block';
+                p2Status = "none";
+                p3Status = 'none';
+            }
+
+            if(inButton == 'button2'){
+                //show p2   hide p1 and p3
+                p1Status = 'none';
+                p2Status = "block";
+                p3Status = 'none';
+            }
+
+            if(inButton == 'button3' ){
+                //show p3   hide p1 and p2
+                p1Status = 'none';
+                p2Status = "none";
+                p3Status = 'block';
+            }
+
+            document.getElementById("p1").style.display = p1Status;
+            document.getElementById("p2").style.display = p2Status;
+            document.getElementById("p3").style.display = p3Status;  
+            
+        }//end changeParaDisplay()       
+
+
+    </script>
+
+
+</head>
+<body onload="pageSetup()">
+    <h1>WDV321 Advanced JavaScript</h1>
+    <h2>Dynamic Structure </h2>
+    <h3>Display One paragraph at time. In the same location.</h3>
+    <p id="p1">First Paragraph.</p>
+    <p id="p2">Second Paragraph.</p>
+    <p id="p3">Third Paragraph.</p>
+    <h3>Please choose which paragraph to display.</h3>
+    <p>
+        <button id="button1">Show 1.</button>
+        <button id="button2">Show 2.</button>
+        <button id="button3">Show 3.</button>
+    </p>
+</body>
+</html>

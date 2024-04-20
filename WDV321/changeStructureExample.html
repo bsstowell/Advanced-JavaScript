@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+
+<style>
+	#blue, #green, #red, #yellow, #pink, #purple {
+		display:none;
+	}
+
+	#blue	{
+		background-color:blue;	
+
+	}
+	#green	{
+		background-color:green;	
+	}
+	#red	{
+		background-color:red;	
+	}
+
+	#yellow	{
+		background-color:yellow;	
+	}
+	
+	#pink	{
+		background-color:pink;	
+	}
+	
+	#purple	{
+		background-color:purple;	
+	}
+
+</style>
+
+<script>
+
+	function pageSetup(){
+
+		let numberOfDivs = prompt("Please enter the number of Divs that you would like to create.");
+
+		for(let x=0; x<numberOfDivs; x++) {
+			document.getElementById("chooseDivColor").onchange = function() {
+
+				let selection = document.getElementById("chooseDivColor").value;
+
+				if(selection == "blue") {
+					document.getElementById("blue").style.display = "block";
+				}	
+				if(selection == "green") {
+					document.getElementById("green").style.display = "block";
+				}
+				if(selection == "red") {
+					document.getElementById("red").style.display = "block";
+				}
+				if(selection == "yellow") {
+					document.getElementById("yellow").style.display = "block";
+				}
+				if(selection == "pink") {
+					document.getElementById("pink").style.display = "block";
+				}
+				if(selection == "purple") {
+					document.getElementById("purple").style.display = "block";
+				}
+			}
+		}
+	}
+
+	/*
+		Add a button that would make new divisions on this page
+
+		where would it show up? after the last div in the group/list displayed
+		what number would it be? 4, 5, 6, etc.  +1 to current number
+		what color should it be? 
+			allow user to select from list
+			limit colors to a group that rotates
+			random color from list
+			random color from existing colors (red, green, blue)
+			use the same colors in the same order as the original (blue green red, blue green red...)
+		how many? is there a limit?
+			set a cap/variable that can be changed if needed (reasonable check)
+			allow customer to set the number, UI input
+
+	*/
+
+</script>
+
+
+</head>
+
+<body onload="pageSetup()">
+
+	<h1>WDV321 Advanced Javascript</h1>
+    <h2>Dynamic Page Structure</h2>
+    
+    <div id="blue">
+    	<h3>Division Blue</h3>
+    </div>
+    
+    <div id="green">
+    	<h3>Division Green</h3>
+    </div>
+    
+    <div id="red">
+    	<h3>Division Red</h3>
+    </div>
+
+	<div id="yellow">
+    	<h3>Division Yellow</h3>
+    </div>
+
+	<div id="pink">
+    	<h3>Division Pink</h3>
+    </div>
+
+	<div id="purple">
+    	<h3>Division Purple</h3>
+    </div>
+
+	<p>
+		<div>
+			<label>Choose a Color for new Div</label>
+			<select name="chooseDivColor" id="chooseDivColor">
+				<option value="">Choose a color</option>
+				<option value="blue">Blue</option>
+				<option value="green">Green</option>
+				<option value="red">Red</option>
+				<option value="yellow">Yellow</option>
+				<option value="pink">Pink</option>
+				<option value="purple">Purple</option>
+			</select>
+		</div>
+	</p>
+
+</body>
+</html>

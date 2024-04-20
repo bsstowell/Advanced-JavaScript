@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function pageSetup(){
+
+            document.getElementById("hideP1").onclick = function(){
+                alert("Hide P1 Clicked");
+                //hide the first paragraph
+                document.getElementById("p1").style.visibility = "hidden";
+            }
+            
+            document.getElementById("showP1").onclick = function(){
+                alert("Show P1 clicked");
+                document.getElementById("p1").style.visibility = "visible";
+            }   
+            
+            document.getElementById("displayNone").onclick = function(){
+                //alert("Display None");
+                document.getElementById("p2").style.display = "none";
+            }
+
+            document.getElementById("displayInline").onclick = function(){
+                //alert("Display Inline");
+                document.getElementById("p2").style.display = "inline";
+            }
+
+            document.getElementById("displayInlineBlock").onclick = function(){
+                //alert("Display Inline");
+                document.getElementById("p2").style.display = "inline-block";
+                document.getElementById("p2").style.width = '200px';
+            }
+
+            document.getElementById("displayBlock").onclick = function(){
+                //alert("Display Block");
+                document.getElementById("p2").style.display = "block";
+            }
+        }
+    </script>
+</head>
+<body onload="pageSetup()">
+    <h1>WDV321 Advanced javaScript</h1>
+    <h2>Unit-3 Dyanmic Structure - Visibility Examples</h2>
+    <p id="p1" class="">First Paragraph.</p>
+    <span id="p2" class="">Second Paragraph.</span>
+    <p id="p3">Third Paragraph.</p>
+
+    <p>
+        <button id="hideP1">Hide P1</button>
+        <button id="showP1">Show P1</button>
+    </p>
+    <p>
+        <button id="displayNone">Display None</button>
+        <button id="displayInline">Display Inline</button>
+        <button id="displayInlineBlock">Display Inline Block</button>
+        <button id="displayBlock">Display Block</button>
+    </p>
+</body>
+</html>

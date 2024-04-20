@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced JS: Demonstrate Local Storage</title>
+
+    <style>
+        body {
+            background-color: lightgray;
+        }
+
+        div {
+            background-color: navy;
+            color:white;
+            width: 75%;
+            height: 300px;
+            margin: auto;
+            align-items: center;
+            align-self: center;
+            text-align: left;
+            padding: 15px;
+            font-size: 25px;
+            border-radius: 25px;
+            border: solid black 2px;
+        }
+    </style>
+
+    <script>
+
+            let baseballRoster = {
+                name: "Mike Trout",
+                position: "centerfield",
+                bats: "right",
+                throws: "right",
+                jerseyNumber: 27
+            }
+            console.log(baseballRoster);
+
+            let baseballRosterJSON = JSON.stringify(baseballRoster);
+            
+            localStorage.setItem("baseballRoster",baseballRosterJSON);
+            console.log(localStorage);
+
+            let getRoster = localStorage.getItem("baseballRoster");
+
+            JSON.parse(getRoster);
+            console.log(getRoster);
+
+            //localStorage.clear();
+
+            function updateRoster() {
+                baseballRoster = {
+                    name: "Bryce Harper",
+                    position: "designated hitter",
+                    bats: "left",
+                    throws: "right",
+                    jerseyNumber: 3
+                }
+
+                //console.log(baseballRoster);
+                baseballRosterJSON = JSON.stringify(baseballRoster);
+                localStorage.setItem("baseballRoster",baseballRosterJSON);
+                console.log(localStorage);
+        }
+
+       </script>
+</head>
+<body>
+    
+    <div>
+        <p>
+        Create a JS data object and store it in local storage. Pull the object from local storage and display the contents, update the contents and put it
+        back into local storage.
+        </p>
+
+        <p id="baseball"></p>
+        <script> document.getElementById("baseball").innerHTML = getRoster;</script>
+
+        <button onclick="updateRoster()">Update Roster in Local Storage</button>
+    </div>
+
+</body>
+</html>

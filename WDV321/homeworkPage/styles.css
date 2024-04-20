@@ -1,0 +1,260 @@
+/* CSS Document */
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-image: url("images/grey_wash_wall.png");
+  border: 2px solid gray;
+  border-radius: 40px;
+  width: 70% auto;
+  margin: 20px;
+  -webkit-box-shadow: 5px 5px 5px #000000;
+          box-shadow: 5px 5px 5px #000000;
+}
+
+.alignText {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 85%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+  padding: 5px;
+  background-image: url("images/grey_wash_wall.png");
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  -webkit-box-shadow: 4px 4px 9px #a7a5a5;
+          box-shadow: 4px 4px 9px #a7a5a5;
+  border-radius: 25px;
+}
+
+.alignBox {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: stretch;
+      align-content: stretch;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #0d113b;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  font-size: 17px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 5px;
+  text-align: left;
+  color: white;
+  line-height: 2.5em;
+}
+
+body {
+  font-family: Comic Sans MS, cursive, sans-serif;
+  background-image: url("images/cork-board.webp");
+}
+
+header {
+  text-align: center;
+  padding: 10px;
+  color: #14cc4b;
+  background-color: #0d113b;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+}
+
+main div h1 {
+  text-align: center;
+}
+
+nav {
+  width: 100%;
+  float: left;
+}
+
+nav ul {
+  list-style-type: none;
+  overflow: hidden;
+  background-color: darkgray;
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 0px;
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+nav li {
+  display: inline;
+}
+
+nav li a {
+  display: inline-block;
+  color: midnightblue;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  background-color: #14cc4b;
+}
+
+.flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: auto;
+}
+
+img {
+  margin-left: 50px;
+  margin-right: 50px;
+  padding: 10px;
+  border-radius: 40px;
+}
+
+footer {
+  background-color: black;
+  padding: 1px;
+  padding-left: 20px;
+  color: lightgray;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+body {
+  background-color: gray;
+}
+
+.clearFix {
+  overflow: auto;
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    background-color: black;
+  }
+  .flex-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+  }
+}
+
+.flip-card {
+  width: 300px;
+  height: 300px;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  margin: auto;
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  -webkit-transition: -webkit-transform 0.6s;
+  transition: -webkit-transform 0.6s;
+  transition: transform 0.6s;
+  transition: transform 0.6s, -webkit-transform 0.6s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.flip-card-back {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.centered {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: white;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  text-decoration: none;
+  font-size: larger;
+}
+
+.centered:hover {
+  color: white;
+}
+
+.centered a {
+  color: #02b7ff;
+  text-decoration: none;
+}
+
+.centered:hover a {
+  text-decoration: none;
+  color: #14cc4b;
+}
+/*# sourceMappingURL=styles.css.map */

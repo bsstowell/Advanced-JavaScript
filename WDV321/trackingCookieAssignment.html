@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        /*
+            check for the existence of the "homePageVisitCounter" (cookie)
+            if we find one
+                add 1 to it
+            else
+                create a new one, initial value of 1
+            put the updated value back into the cookie
+                determine expiration date?  persistent over time 99years
+                    is expiration 99 years from cookie creation OR from cookie update?
+        */
+
+        function getCookie(tag) {
+            var value = null
+            var myCookie = document.cookie + ";"
+            var findTag = tag + "="
+            var endPos
+            if (myCookie.length > 0 ) {
+            var beginPos = myCookie.indexOf(findTag)
+            if (beginPos != -1) {
+                beginPos = beginPos + findTag.length
+                endPos = myCookie.indexOf(";", beginPos)
+                if (endPos == -1)
+                endPos = myCookie.length
+                value = unescape(myCookie.substring(beginPos, endPos))
+            }
+            } 
+        return value   
+        } 
+
+        function addCookie(tag, value) {
+            var expireDate = new Date()
+            var expireString = ""
+            expireDate.setTime(expireDate.getTime() + (1000 * 60 * 60 * 24 * 365) )
+            expireString = "expires="+ expireDate.toGMTString()
+            document.cookie = tag + "=" + value + ";" + expireString + ";"
+        }
+
+        console.log( getCookie("homePageVisitCounter") );   //tells 
+
+        if( getCookie("homePageVisitCounter") == null ){
+            console.log("Home Page Hit Counter Not Found");
+            addCookie("homePageVisitCounter",1);
+        }
+        else{
+            console.log("Home Page Hit Counter Is already in cookie");
+            let counterValue = getCookie('homePageVisitCounter');
+            counterValue++;
+
+            addCookie('homePageVisitCounter',counterValue);
+
+        }
+
+        function showCookie(){
+            console.log(document.cookie);
+        }
+
+        document.cookie = "studentName='Brian'"
+        document.cookie = "studentNumber=6523147"
+        console.log(getCookie());
+    </script>
+</head>
+<body>
+    <p>
+        <p>Click to button to show the cookies and the updated page tracker in the console.</p>
+        <button onclick="showCookie()">Show Cookies</button>
+    </p>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>WDV321 Advanced Javascript</title>
+	<style>
+
+		h1, h2 {
+			text-align: center;
+		}
+
+		#comp, #tech, #prod {
+			display: none;
+		}
+
+		form	{
+			width:600px;
+			height: 500px;
+			margin:auto;
+			background-color:rgb(0, 54, 14);	
+			color: white;
+			padding: 20px;
+			font-size: large;
+			font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+			border-radius: 25px;
+			border: solid black 2px;
+			align-content: center;
+		}
+
+		.centerStuff {
+			text-align: center;
+		}
+
+		#button, #button2 {
+			border: solid white 1px;
+			border-radius: 25px;
+			background-color: white;
+			color:rgb(0, 54, 14);
+			padding: 10px 17px;
+			font-weight: bold;
+			font-size: medium;
+		}
+
+		#comp {
+			height: 130px;
+		}
+
+	</style>
+
+	<script>
+		function pageSetup() {
+
+			document.getElementById("contactType").onchange = function() {
+
+				let selection = document.getElementById("contactType").value;
+
+				if(selection == "") {
+					document.getElementById("comp").style.display = "none";
+					document.getElementById("tech").style.display = "none";
+					document.getElementById("prod").style.display = "none";
+				}	
+				if(selection == "complaints") {
+					document.getElementById("comp").style.display = "block";
+					document.getElementById("tech").style.display = "none";
+					document.getElementById("prod").style.display = "none";
+				}	
+				if(selection == "technical") {
+					document.getElementById("comp").style.display = "none";
+					document.getElementById("tech").style.display = "block";
+					document.getElementById("prod").style.display = "none";
+				}
+				if(selection == "products") {
+					document.getElementById("comp").style.display = "none";
+					document.getElementById("tech").style.display = "none";
+					document.getElementById("prod").style.display = "block";
+				}
+			}
+		}
+	</script>
+</head>
+
+<body onload="pageSetup()">
+	<h1>WDV321 Advanced Javascript</h1>
+	<h2>Dynamic Structure - Assignment</h2>
+
+	<form>
+		<h2>Thank You for Contacting Us!</h2>
+			<div>
+				<label>Reason For Contact:</label>
+				<select name="contactType" id="contactType">
+				<option value="">Choose a reason:</option>
+				<option value="complaints" id="complaints">Complaints</option>
+				<option value="technical" id="technical">Technical Problems</option>
+				<option value="products" id="products">Product Issues</option>
+				</select>
+			</div><br><br>
+
+			<div id="comp">
+				<label>Please Choose a Complaint Category:</label>
+				<select>
+					<option value="">Choose a Complaint</option>
+					<option value="speed">Speed of Service</option>
+					<option value="service">Quality of Service</option>
+					<option value="associate">Issue with Company Associate</option>
+					<option value="money">Monetary Transaction</option>
+				</select>
+			</div>
+
+			<div id="tech">
+				<label>Please Check Corresponding box(es) for Technical Issues:</label><br><br>
+					<input type="checkbox" id="slow" name="slow" value="slow">
+					<label for="slow">Website Too Slow</label><br>
+					<input type="checkbox" id="order" name="order" value="order">
+					<label for="order">Order Won't Go Through</label><br>
+					<input type="checkbox" id="product" name="product" value="product">
+					<label for="product">Wrong Product Listed</label><br>
+					<input type="checkbox" id="ads" name="ads" value="ads">
+					<label for="ads">Too Many Ads</label><br>
+			</div>
+
+			<div id="prod">
+				<label>Please Choose a Product Issue:</label><br><br>
+					<input type="radio" value="wrong" name="prod">
+					<label>Wrong Product</label><br>
+					<input type="radio" value="damaged" name="prod">
+					<label>Product Damaged</label><br>
+					<input type="radio" value="defective" name="prod">
+					<label>Product Does Not Work as Advertised</label><br>
+					<input type="radio" value="delivery" name="prod">
+					<label>Product Not Delivered</label><br>
+			</div>
+			<div class="centerStuff">
+				<p>Comments:</p> 
+				<textarea name="comments" rows="5" cols="50"></textarea>
+				<br><br><br>
+				<input type="submit" name="button" id="button" value="Submit" />
+				<input type="reset" name="button2" id="button2" value="Reset" />
+			</div>
+	</form>
+
+	<br><br><br>
+	<ol>
+	  <li>Create a div that contains a new drop down list with at least four common Complaints to a company. </li>
+	  <li>Create a div that contains four Technical Problems displayed as a  set of checkboxes. </li>
+	  <li>Create a div that contains four Product Issues displayed as a set of radio buttons.</li>
+	  <li>Use the display property to remove these content containers from the page.</li>
+    </ol>
+	<p>Based on the selection from the &quot;Reason For Contact&quot; dynamically display the requested set of followup questions on the page using the display property.</p>
+	<p>You are welcome to change the content, layout and style of this page as desired. </p>
+	<p>&nbsp;</p>
+</body>
+</html>

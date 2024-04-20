@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDV321 Advanced JavaScript - Unit-1</title>
+    <style>
+
+        #container {
+            width:900px;
+            margin-left:auto;
+            margin-right:auto;
+
+        }
+
+        header {
+            border-bottom:thick solid brown;
+            text-align: center;
+        }
+
+        main {
+            padding-left:5px;
+        }
+
+        footer p {
+            text-align: center;
+        }
+
+    </style>
+
+    <script>
+
+        const backgroundColor = ['red', 'blue', 'green', 'yellow', 'orange', 'white'];
+        const backgroundValue = ['red', 'blue', 'green', 'yellow', 'orange', 'white'];
+
+        const colorObject = {userName:"Mary", fontColor:"black", bgColor:"green"};
+
+        function pageLoad() {
+                document.getElementById("name").innerHTML = colorObject.userName;
+
+                for (let x=0; x<backgroundColor.length; x++) {
+                    var optionColor = document.createElement("option");
+                    optionColor.text = backgroundColor[x];
+                    optionColor.value = backgroundValue[x];
+                    document.querySelector("#chooseColor").appendChild(optionColor);                   
+                }
+
+                let selectedColor = document.querySelector("#chooseColor");
+                selectedColor.onchange = function() {
+                    changeBackgroundColor();
+                }
+        }
+
+        function changeBackgroundColor() {
+
+            currentBackgroundColor = colorObject.bgColor;
+                //console.log(currentBackgroundColor);
+
+            let selectedColor = document.querySelector("#chooseColor").value;
+                //console.log(selectedColor);
+
+            if (currentBackgroundColor.toLowerCase() === selectedColor.toLowerCase() ){
+                alert("Try again. Chosen color is the same as the current background color.");
+            }
+            else {
+                document.body.style.backgroundColor = selectedColor;
+                colorObject.bgColor = selectedColor;
+        }
+    }
+
+        function displayDataObject() {
+            let selectedColor = document.getElementById("chooseColor").value;
+                console.log(selectedColor);
+        }
+    
+  
+    </script>
+</head>
+<body id="color" onload="pageLoad()">
+    <div id="container"> 
+        
+            <header>
+            <h1>WDV321 Advanced JavaScript</h1>
+            <h2>Unit-1 Assignment Review JavaScript</h2>
+        </header>
+
+        <main>
+            <h2>Welcome back <span id="name">NAME</span></h2>
+            <h3>Please Set Your Preferences</h3>
+
+                        <label for="chooseColor">Choose a Color:</label>
+                            <select name="chooseColor" id="chooseColor">
+                                <option value="">Choose Background Color</option>
+                            </select>
+                   
+            <p>
+                <button onclick="displayDataObject()">Display Preferences</button>
+            </p>
+        </main>
+
+        <footer>
+            <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script>. All rights reserved.</p>
+        </footer>
+
+    </div>
+</body>
+</html>

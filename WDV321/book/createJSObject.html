@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-1 Create JavaScript Object</title> 
+
+    <script>
+
+            let jsJavaBook = {
+                isbn: 596123162,
+                title: "Java and XML",
+                price: 39.95,
+                publisher: "O'Reilly & Associates",
+                authors: [ {Fname:"Brett", Lname:"McLaughlin", Price:22.00} ],
+                copyright: 2000,
+                comments: "Update Required"
+            }
+            console.log(jsJavaBook);
+
+            let JSONjsJavaBook = JSON.stringify(jsJavaBook);
+            console.log(JSONjsJavaBook);
+
+
+            let jsVBBook = {
+                isbn: 1861003323,
+                title: "Professional Visual Basic 6 XML",
+                price: 49.99,
+                publisher: "Wrox Press",
+                authors: [ {Fname: "James", Lname: "Britt"}, {Fname:"Tuen", Lname:"Duynstee"} ],
+                copyright: 2000,
+                comments: "Outdated text. Switch to C#"
+            }
+            console.log(jsVBBook);
+
+            let JSONjsVBBook = JSON.stringify(jsVBBook);
+            console.log(JSONjsVBBook);
+
+            let jsTextbooks = [jsJavaBook, jsVBBook];
+            console.log(jsTextbooks);
+
+            let JSONjsTextbooks = JSON.stringify(jsTextbooks);
+            console.log(JSONjsTextbooks);
+
+            /* ....XML file used to create the objects above....
+            <Book>
+                <ISBN>0-596-00016-2</ISBN>
+                <Title>Java and XML</Title>
+                <Price>39.95</Price>
+                <Publisher>O'Reilly &amp; Associates</Publisher>
+                <Authors>
+                    <Author>
+                        <Fname>Brett</Fname>
+                        <Lname>McLaughlin</Lname>
+                        <Price>22.00</Price>
+                    </Author>
+                </Authors>
+                <Copyright>2000</Copyright>
+                <Comments>Update required</Comments>
+            </Book>
+
+            <Book>
+                <ISBN>1-861003-32-3</ISBN>
+                <Title>Professional Visual Basic 6 XML</Title>
+                <Price>49.99</Price>
+                <Publisher>Wrox Press</Publisher>
+                <Authors>
+                    <Author>
+                        <Fname>James</Fname>
+                        <Lname>Britt</Lname>
+                    </Author>
+                    <Author>
+                        <Fname>Tuen</Fname>
+                        <Lname>Duynstee</Lname>
+                    </Author>
+                </Authors>
+                <Copyright>2000</Copyright>
+                <Comments>Outdated text. Switch to C#</Comments>
+            </Book>   */
+        
+    </script>
+</head>
+<body>
+    <h1>Advanced JavaScript</h1>
+    <h2>Create JavaScript Object Using XML file</h2>
+
+   <p>View the objects created using the XML file (pasted in the comments) in the console.</p>
+
+</body>
+</html>
